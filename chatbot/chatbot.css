@@ -1,258 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
-  }
-  
-  html {
-      /* height: 100%; */
-  
-  }
-  
-  body {
-    font-family: 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, Helvetica,
-      sans-serif;
-    /* -webkit-font-smoothing: antialiased; */
-    /* -moz-osx-font-smoothing: grayscale; */
-      /* background-color: rgba(152, 243, 208, 0.5); */
-      /* height: 100%; */
-      margin: 0;
-  }
-  
-  span {
-      padding-right: 15px;
-      padding-left: 15px;
-  }
-  
-  .container {
-      display: flex;
-    justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-  }
-  
-  .chat {
-      height: 300px;
-      width: 50vw;
-      display: flex;
-      flex-direction: column;
-    justify-content: center;
-      align-items: center;
-  } 
-  
-  ::-webkit-input-placeholder { 
-      color: .711 
-  }
-   
-  input { 
-      border: 0; 
-      padding: 15px; 
-      margin-left: auto;
-      border-radius: 10px; 
-  }
-  
-  .messages {
-      display: flex;
-      flex-direction: column;
-      overflow: scroll;
-      height: 90%;
-      width: 100%;
-      background-color: white;
-      padding: 15px;
-      margin: 15px;
-      border-radius: 10px;
-  }
-  
-  #bot {
-      margin-left: auto;
-  }
-  
-  .bot {
-      font-family: Consolas, 'Courier New', Menlo, source-code-pro, Monaco,  
-      monospace;
-  }
-  
-  .avatar {
-      height: 25px;
-  }
-  
-  .response {
-      display: flex;
-      align-items: center;
-      margin: 1%;
-  }
-.img{
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    /* height: 100%; */
+}
+
+body {
+    margin: 0;
+    /* font-family reset to Poppins globally */
+    font-family: 'Poppins', sans-serif;
+}
+
+span {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* --- Chat Container --- */
+.container {
     display: flex;
     justify-content: center;
-      align-items: center;
-      margin-top: 30px;
-      
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.chat {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Input Area */
+::-webkit-input-placeholder { 
+    color: #aaa; 
+    font-style: italic;
 }
   
-  
-  /* Mobile */
-  
-  @media only screen and (max-width: 800px) {
-    .container {
-          flex-direction: column; 
-          justify-content: flex-start;
-      }
-      .chat {
-          width: 75vw;
-          margin: 10vw;
-      }
-.img img{
-        width: 600px;
-        height:500px ;
-      }
-      
-      /* img{
-        visibility: hidden;
-      }
-      .img{
-        width: 740px;
-        height: 560px;
-        background:url('chitti.jpeg')no-repeat;
-      background-size: cover;
-     margin: auto;
-      place-items:center;
-    
+input { 
+    border: none; 
+    padding: 15px; 
+    margin-left: auto;
+    width: 100%;
+    font-size: 15px;
+    background: #f9f9f9;
+    border-top: 1px solid #eee;
+    outline: none;
+}
 
-    
-    
-      } */
-  } 
-  /* .chatwindow{
-    width:400px;
-    height: 400px;
-    background: color #f2f2f2;;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    margin: auto;
+input:focus {
+    background: #fff;
+}
 
-  } */
-  .chat-header {
-    background-color: #4caf9d;
+/* Messages Area */
+.messages {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: white; /* Or #f4f6f8 for slight contrast */
+    padding: 20px;
+    gap: 10px;
+}
+
+/* User Messages (Aligned Right) */
+#bot {
+    margin-left: auto;
+    background-color: #004AAD;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 74, 173, 0.2);
+}
+
+/* Bot Messages (Aligned Left) */
+.bot {
+    font-family: 'Poppins', sans-serif; /* Override monospace */
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 15px 15px 15px 0;
+    max-width: 80%;
+    align-self: flex-start;
+    margin-right: auto;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.avatar {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.response {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+/* Images inside chat */
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;     
+}
+
+/* Header Styles (Preserved) */
+.chat-header {
+    background-color: #004AAD; /* Updated to brand color */
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-  }
-  
-  .cover{
+    font-weight: 600;
+}
+
+.cover {
     width: 100%;
     height: 400px;
-    background:url('../img/image.jpg')no-repeat;
+    background: url('../img/image.jpg') no-repeat;
     background-size: cover;
     display: grid;
-    place-items:center;
+    place-items: center;
     padding-top: 8rem;
-  }
+}
 
-
-/* Style for the header */
+/* --- Contact Form Styles --- */
 h1 {
-  text-align: center;
-  margin: 20px 0;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
 }
 
-/* Style for the contact form */
 .contact-form {
-  width: 50%;
-  margin: 0 auto;
+    width: 100%; /* Adjusted for new layout */
+    margin: 0 auto;
 }
 
-/* Style for form labels */
 label {
-  display: block;
-  margin-bottom: 10px;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
 }
 
-/* Style for form inputs */
 input[type="text"], input[type="email"], textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  margin-bottom: 10px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
 }
 
-/* Style for the submit button */
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: #004AAD;
+    box-shadow: 0 0 5px rgba(0, 74, 173, 0.2);
+}
+
 input[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Style for the contact information */
-.contact-info {
-  margin-top: 20px;
-  text-align: center;
-}
-
-
-  @media only screen and (max-width: 800px) {
-    .cover{
-      width: auto;
-      height:auto;
-      background:url('../img/image.jpg')no-repeat;
-      background-size: cover;
-      display: grid;
-      place-items:center;
-      padding-top: 8rem;
-    }
-  
-    .contact-form {
-      width: 70%;
-      margin: 0 auto;
-    }
-    textarea{
-      padding-top: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-bottom: 50px
-
-    }
-  
-  }
-
-  /* togglelist */
-  .accordion {
-    background-color:rgba(255, 255, 255, 0.856);
-    color: #444;
+    background-color: #004AAD; /* Updated brand color */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
     cursor: pointer;
-    padding: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+    width: auto;
+}
+
+input[type="submit"]:hover {
+    background-color: #003680;
+    transform: translateY(-2px);
+}
+
+.contact-info {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+}
+
+/* --- Accordion (FAQ) Styles --- */
+.accordion {
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    padding: 15px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-  }
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+}
   
-   .accordion:hover {
-    background-color: #ccc;
-  }
-  
-  .accordion:after {
-    content: '\002B';
-    color: #777;
+.accordion:hover {
+    background-color: #f0f0f0;
+    color: #004AAD;
+}
+
+.accordion.active {
+    background-color: #eef4ff;
+    color: #004AAD;
+    border-color: #cce0ff;
+}
+
+.accordion:after {
+    content: '\002B'; /* Plus sign */
+    color: #004AAD;
     font-weight: bold;
     float: right;
     margin-left: 5px;
-  }
-  
-  .active:after {
-    /* content: "\2212"; */
-  }
-  
-  .panel {
-    padding: 0 18px;
+    font-size: 18px;
+}
+
+.active:after {
+    content: "\2212"; /* Minus sign */
+}
+
+.panel {
+    padding: 0 15px;
     background-color: white;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
+    transition: max-height 0.3s ease-out;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 10px;
+}
+
+.panel p {
+    padding: 15px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Mobile Responsiveness --- */
+@media only screen and (max-width: 800px) {
+    .container {
+        flex-direction: column; 
+        justify-content: flex-start;
+    }
+    
+    .chat {
+        width: 100%;
+        height: 400px;
+        margin: 0;
+    }
+
+    .img img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+      
+    .cover {
+        width: auto;
+        height: auto;
+        padding-top: 8rem;
+    }
+  
+    .contact-form {
+        width: 100%;
+    }
+    
+    textarea {
+        padding: 15px;
+    }
+}

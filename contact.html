@@ -2,20 +2,306 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact</title>
+    <title>Contact Us - SAVE Plate</title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="chatbot/chatbot.css">
-	 
+    <link rel="stylesheet" href="chatbot/chatbot.css">
+   
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            /* Consistent background with other pages */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/p11.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* --- Header --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .nav-bar ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-bar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-bar ul li a:hover, .nav-bar ul li a.active {
+            color: #004AAD;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger .line {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 5px;
+        }
+
+        /* --- Main Layout --- */
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 32px;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Grid for Form and Info */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Glass Card Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Form Styles */
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #f9f9f9;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #004AAD;
+            box-shadow: 0 0 5px rgba(0, 74, 173, 0.2);
+        }
+
+        form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        form input[type="submit"] {
+            background: #004AAD;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            width: auto;
+            min-width: 150px;
+        }
+
+        form input[type="submit"]:hover {
+            background: #003680;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Info Styles */
+        .contact-info p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+        
+        .contact-info i {
+            color: #004AAD;
+            font-size: 20px;
+            width: 25px;
+        }
+
+        /* --- Chatbot & FAQ Section --- */
+        .support-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* Chatbot Container styling overrides */
+        #container {
+            width: 100%;
+            height: 400px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #chat {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f4f6f8;
+        }
+
+        #input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-top: 1px solid #ddd;
+            outline: none;
+            font-size: 15px;
+        }
+
+        /* Accordion Styles */
+        .accordion {
+            background-color: #f1f1f1;
+            color: #333;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.4s;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #004AAD;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .accordion:hover, .active {
+            background-color: #e9e9e9;
+            color: #004AAD;
+        }
+
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            margin-bottom: 10px;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .panel p {
+            padding: 15px 0;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .contact-grid, .support-grid {
+                grid-template-columns: 1fr;
+            }
+            header { padding: 15px 20px; }
+            .hamburger { display: block; }
+
+            .nav-bar {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: white;
+                display: none;
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+            .nav-bar.active { display: flex; }
+            .nav-bar ul { flex-direction: column; gap: 15px; }
+        }
+    </style>
 </head>
 
 
 <body>
-	<header>
+  <header>
         <div class="logo">SAVE <b style="color: #004AAD;">Plate</b></div>
         <div class="hamburger">
             <div class="line"></div>
@@ -26,83 +312,95 @@
             <ul>
                 <li><a href="home.html" >Home</a></li>
                 <li><a href="about.html" >About</a></li>
+                
+                <li><a href="deals.php" style="color: #ff4d4d; font-weight: bold;">⚡ Deals</a></li>
+                
                 <li> <a href="contact.html" class="active">Contact</a> </li>
                 <li><a href="profile.php" >Profile</a></li>
             </ul>
         </nav>
     </header>
+    
     <script>
-        hamburger=document.querySelector(".hamburger");
-        hamburger.onclick =function(){
-            navBar=document.querySelector(".nav-bar");
+        const hamburger = document.querySelector(".hamburger");
+        hamburger.onclick = function() {
+            const navBar = document.querySelector(".nav-bar");
             navBar.classList.toggle("active");
         }
     </script>
-    <section class="cover" >
+    
+    <div class="main-wrapper">
+        <p class="heading">Contact Us </p>
         
-    </section>
-	<p class="heading" style=" margin: 20px;">contact us </p>
-    
-     
-	
-   <!-- <h1 class="heading">Contact Us</h1>  -->
-   <div class="contact-form"> 
-    <form action="feedback.php" method="post"> <label for="name">Name:</label> 
-     <input type="text" id="name" name="name">
-     <br> <label for="email">Email:</label> 
-     <input type="email" id="email" name="email">
-     <br> <label for="message">Message:</label> <textarea id="message" name="message"></textarea>
-     <br> 
-     <input type="submit" value="Send" name="send"> 
-    </form> 
-   </div> 
-   <div class="contact-info" style="padding: 10px;"> 
-    <p>Email: saveplate@gmail.com</p> 
-    <p>Phone: 555-555-5555</p> 
-    <p>Address: Graphic Era Hill University Dehradun</p> 
-   </div> 
+        <div class="contact-grid">
+            <div class="glass-card contact-form">
+                 <h3 style="color:#004AAD; margin-bottom: 20px;">Send a Message</h3>
+                 <form action="feedback.php" method="post"> 
+                    <label for="name">Name:</label> 
+                    <input type="text" id="name" name="name" placeholder="Your Name">
+                    
+                    <label for="email">Email:</label> 
+                    <input type="email" id="email" name="email" placeholder="Your Email">
+                    
+                    <label for="message">Message:</label> 
+                    <textarea id="message" name="message" placeholder="How can we help you?"></textarea>
+                    
+                    <input type="submit" value="Send Message" name="send"> 
+                 </form> 
+            </div> 
+
+            <div class="glass-card contact-info"> 
+                <h3 style="color:#004AAD; margin-bottom: 20px;">Get in Touch</h3>
+                <p><i class="fa fa-envelope"></i> saveplate@gmail.com</p> 
+                <p><i class="fa fa-phone"></i> 555-555-5555</p> 
+                <p><i class="fa fa-map-marker"></i> Graphic Era Hill University<br>Dehradun</p> 
+                
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                <p style="font-size: 14px; line-height: 1.6;">
+                    Have questions about food donation? Our team is available 24/7 to assist you.
+                </p>
+            </div> 
+        </div>
+
+        <div class="support-grid">
+            <div class="glass-card chatbot">
+                <p style="font-size: 20px; text-align: center; margin-bottom: 15px; color: #004AAD; font-weight: 600;">
+                    Chat Support <img src="bot-mini.png" alt="" height="25" style="vertical-align: middle;">
+                </p>
+                <div id="container" class="container">
+                    <div id="chat" class="chat">
+                        <div id="messages" class="messages"></div>
+                        <input id="input" type="text" placeholder="Type your question..." autocomplete="off" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card help">
+                <p style="font-size: 20px; text-align: center; margin-bottom: 20px; color: #004AAD; font-weight: 600;">Help & FAQs</p>
+
+                <button class="accordion">How to donate food?</button>
+                <div class="panel">
+                  <p>1) Click on <a href="fooddonate.html" style="color:#004AAD;">Donate</a> in home page.<br>
+                  2) Fill the details about the food.<br>
+                  3) Click on submit.</p>
+                  <img src="img/mobile.jpg" alt="" width="100%" style="border-radius: 8px; margin-top: 10px;">
+                </div>
+
+                <button class="accordion">How will my donation be used?</button>
+                <div class="panel">
+                  <p>Your donation will be used to support our mission and the various programs and initiatives that we have in place. Your donation will help us to continue providing assistance and support to those in need.</p>
+                </div>
+
+                <button class="accordion">What if food is near expiration?</button>
+                <div class="panel">
+                  <p>We appreciate your willingness to donate, but to ensure the safety of our clients we can't accept food that is near or past its expiration date. We recommend checking expiration dates before making a donation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
  
-
-  <div class="chatbot" style="padding: 30px; background-color: rgba(151, 243, 199, 0.5);">
- <p style="font-size: 23px; text-align: center;">chat bot support <img src="bot-mini.png" alt=""height="20"></p>
-
-	
- <div id="container" class="container">
-    
-
-		<div id="chat" class="chat">
-			<div id="messages" class="messages"></div>
-			<input id="input" type="text" placeholder="Say something..." autocomplete="off" />
-		</div>
-       
-	</div>
-  <div class="help">
-    <p style="font-size: 23px; text-align: center; padding:10px;">Help & FAQs?</p>
-
-<button class="accordion">how to donate food ?</button>
-<div class="panel">
-  <p>1)click on <a href="fooddonate.html">donate</a> in home page </p>
-  <p>2)fill the details </p>
-  <p>3)click on submit</p>
- <img src="img/mobile.jpg" alt="" width="100%">
-</div>
-
-<button class="accordion">How will my donation be used?</button>
-<div class="panel">
-  <p style="padding: 10px;"> Your donation will be used to support our mission and the various programs and initiatives that we have in place. Your donation will help us to continue providing assistance and support to those in need. You can find more information about our programs and initiatives on our website. If you have any specific questions or concerns, please feel free to contact us</p>
-</div>
-
-<button class="accordion">What should I do if my food donation is near or past its expiration date?</button>
-<div class="panel">
-  <p style="padding: 10px;">We appreciate your willingness to donate, but to ensure the safety of our clients we can't accept food that is near or past its expiration date. We recommend checking expiration dates before making a donation or contact us for further guidance</p>
-  
-</div>
-  </div>
-
-  </div>
- 
-    
 </body>
+
 <script type="text/javascript" src="chatbot/chatbot.js" ></script>
 <script type="text/javascript" src="chatbot/constants.js" ></script> 
 <script type="text/javascript" src="chatbot/speech.js" ></script>
@@ -121,6 +419,6 @@
         } 
       });
     }
-    </script>
+</script>
 
 </html>

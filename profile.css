@@ -1,132 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-body{
-    /* background-color: #20cd79; */
- 
-
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-
-  
-
-
-.cover{
- width: 100%;
-    height: 500px;
-    background:url('profilecover2.jpg')no-repeat;
+body {
+    /* Matching background with Login/Signup */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/p11.jpg');
+    background-repeat: no-repeat;
     background-size: cover;
-    display: grid;
-    place-items:center;
-    padding-top: 8rem; 
-}
-.profilebox{
-    padding-top: 8rem;
-   text-align: center;    
-    width: 700px;
-    height: 900px;
-    margin: 20px auto ;
-    
-    /* background-color:rgba(90, 255, 208, 0.713); */
-    /* box-shadow:0 .5rem 1rem rgba(0,0,0.1); */
-
-    color:black;
-    padding: 10px 20px 20px 20px;
-    font-size: 20px;
-    /* border-radius: 30px ; */
-    
-
-}
-.info{
-    /* font-family: 'Times New Roman', Times, serif; */
-    
-    text-align: left;
-    padding: 10px;
-}
-.table-container{
-    padding: 0 ;
-    margin: 20px auto 10px;
-    /* border: 1px solid ; */
-    /* border-radius: 10px; */
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
-.table{
+/* --- Header & Nav (Ensuring consistency) --- */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-bar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-bar ul li a:hover, 
+.nav-bar ul li a.active {
+    color: #004AAD;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 5px;
+}
+
+/* --- Profile Container --- */
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    min-height: 90vh;
+}
+
+.profilebox {
+    background: rgba(255, 255, 255, 0.95);
     width: 100%;
-
-    border-collapse:separate;
-    border-spacing: 0px;
-    
-
-
-}
-th{
-    position:sticky;
-    top:0px;
-    background-color: #004AAD;
-    /* background-color: rgb(240, 242, 246) */
-
-
-    
-}
-th,td{
-    /* border: 1px solid #12121385; */
-
-}
-.table-wrapper{
-    max-height: 130px;
-    overflow-y: scroll;
-
-}
-.table thead tr th{
-    font-size: 14px;
-    font-weight: medium;
-    letter-spacing: 0.35px;
-    opacity: 1;
-    padding: 12px;
-    vertical-align: top;
-
-} 
-
-
-/* for phone */
-@media (max-width: 767px) {
-    .cover{
-        width: auto;
-        height:auto;
-        background:url('profilecover1.jpg')no-repeat;
-        background-size: cover;
-        display: grid;
-        place-items:center;
-        padding-top: 8rem;
-      }
-      .cover img{
-        width: 100%;
-        height: auto;
-      }
-    .profilebox{
-        width: 350px;
-        font-size: 14px;
-        height: 600px;
-        border-radius: 30px ;
-
-        
-    }
-    .table thead tr th{
-        font-size: 14px;
-        font-weight: medium;
-        letter-spacing: 0.35px;
-        opacity: 1;
-        padding: 5px;
-    }
-}
-
-
-.headingline{
-    font-size: 28px;
+    max-width: 850px;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-align: center;
-    align-items: center; 
-    text-decoration: underline 5px;
-    text-decoration-color: #004AAD;
-   }
+    position: relative;
+}
 
+/* --- Headings --- */
+.profile-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
 
-   
+.headingline {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 3px solid #004AAD;
+    padding-bottom: 10px;
+}
+
+.headingline i {
+    color: #004AAD;
+    font-size: 35px;
+}
+
+.heading {
+    font-size: 22px;
+    font-weight: 500;
+    color: #004AAD;
+    margin: 20px 0 15px 0;
+    text-align: left;
+}
+
+/* --- User Info Section --- */
+.info {
+    text-align: left;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border-left: 5px solid #004AAD;
+}
+
+.info p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.info p strong {
+    color: #333;
+    width: 100px;
+    display: inline-block;
+}
+
+/* --- Logout Button --- */
+.logout-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #d32f2f; /* Red for logout */
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logout-btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* --- Table Styling --- */
+.table-container {
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden; /* Clips corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.table-wrapper {
+    max-height: 400px; /* Increased height for better view */
+    overflow-y: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #004AAD;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    z-index: 10;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f7ff; /* Light blue hover */
+}
+
+.table tbody td {
+    padding: 15px;
+    color: #555;
+    font-size: 15px;
+    text-align: left;
+}
+
+/* --- Mobile Responsiveness --- */
+@media only screen and (max-width: 768px) {
+    header { padding: 15px 20px; }
+    
+    .hamburger { display: block; }
+
+    .nav-bar {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        display: none;
+        border-top: 1px solid #eee;
+    }
+
+    .nav-bar.active { display: block; }
+
+    .nav-bar ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .profilebox {
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .headingline { font-size: 24px; }
+    
+    .info p { font-size: 15px; }
+    
+    .table thead th, .table tbody td {
+        padding: 10px;
+        font-size: 13px;
+    }
+}

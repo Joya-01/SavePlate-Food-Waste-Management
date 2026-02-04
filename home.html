@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <div class="logo">SAVE <b style="color: #061cc1;">Plate</b></div>
+        <div class="logo">SAVE <b>Plate</b></div>
         <div class="hamburger">
             <div class="line"></div>
             <div class="line"></div>
@@ -19,106 +19,95 @@
         <nav class="nav-bar">
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="about.html" >About</a></li>
-                <li><a href="contact.html" >Contact</a></li>
-                <li><a href="profile.php" >Profile</a></li>
-                <!-- <li ><a href="fooddonate.html"  >Donate</a></li> -->
+                <li><a href="about.html">About</a></li>
+                
+                <li><a href="deals.php" style="color: #ff4d4d; font-weight: bold;">⚡ Deals</a></li>
+                
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="profile.php">Profile</a></li>
             </ul>
         </nav>
     </header>
+
     <script>
-        hamburger=document.querySelector(".hamburger");
-        hamburger.onclick =function(){
-            navBar=document.querySelector(".nav-bar");
+        const hamburger = document.querySelector(".hamburger");
+        hamburger.onclick = function() {
+            const navBar = document.querySelector(".nav-bar");
             navBar.classList.toggle("active");
         }
     </script>
+
     <section class="banner">
-        <a href="fooddonateform.php">Donate Food</a>
+        <div class="hero-content">
+            <h1>Feed Hope, Not Landfills.</h1>
+            <a href="fooddonateform.php" class="donate-btn">Donate Food</a>
+            
+            <a href="deals.php" class="donate-btn" style="background-color: #ff9800; margin-left: 15px;">Get Food Deals</a>
+        </div>
     </section>
+
     <div class="content">
-        <!-- <h2>Love Food</h2>
-        <h3>Hate Wasting</h3> -->
-        <p style="font-size: 23px;">
-            “Every dish saved is a neighbor nourished, a story shared, and a brighter, kinder plate for our community. Let's feed hope, not landfills.” 
+        <p>
+            “Every dish saved is a neighbor nourished, a story shared, and a brighter, kinder plate for our community.” 
         </p>
-       
     </div>
+
     <div class="photo">
-        <br>
         <p class="heading">Our Works</p>
-        <br>
-        <p style="font-size: 28px; text-align: center;">"Look what we can do together."</p>
-       <br>
+        <p class="sub-heading">"Look what we can do together."</p>
+        
         <div class="wrapper">
-          <div class="box"><img src="img/p4.jpg" alt=""></div>
-          <div class="box"><img src="img/p7.jpg" alt=""></div>
-          <div class="box"><img src="img/p8.avif" alt=""></div>
+            <div class="box"><img src="img/p4.jpg" alt=""></div>
+            <div class="box"><img src="img/p7.jpg" alt=""></div>
+            <div class="box"><img src="img/p8.avif" alt=""></div>
         </div>
-        <!-- <p style="font-size: 19px;"> The basic concept of this project  Food Waste Management is to collect theexcess/leftover food from donors such as hotels, restaurants, marriage halls, etc and distribute to  the  needy people .
-        </p> -->
-        <br>
-        
-    
-     
-        
     </div>
-    <div class="deli" style="display: grid;" >
-      <p class="heading">DOOR PICKUP</p>
-      <br>
-      <p  class="para">"Your donate will be immediately collected and sent to needy people "</p>
-      <img src="img/delivery.gif" alt="" style="margin-left:auto; margin-right: auto;">
 
+    <div class="deli">
+        <p class="heading">Door Pickup</p>
+        <p class="para">"Your donation will be immediately collected and sent to needy people"</p>
+        <img src="img/delivery.gif" alt="Delivery Animation">
     </div>
-    <div class="ser">
-      <!-- <p class="heading">Our Services</p> -->
-      
-    </div>
+
     <footer class="footer">
-        <div class="footer-left col-md-4 col-sm-6">
-          <p class="about">
-            <span> About us</span>The basic concept of this project  Food Waste Management is to collect the excess/leftover  food from donors such as hotels, restaurants, marriage halls , etc and distribute to  the  needy people .
-     </p>
-        
-        </div>
-        <div class="footer-center col-md-4 col-sm-6">
-          <div>
-            <p><span> Contact</span> </p>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="about">
+                    <span>About us</span>
+                    The basic concept of this project Food Waste Management is to collect the excess/leftover food from donors such as hotels, restaurants, marriage halls, etc and distribute to the needy people.
+                </p>
+            </div>
             
-          </div>
-          <div>
-        
-            <p> (+55) 5555 555 555</p>
+            <div class="footer-center">
+                <p><span>Contact</span></p>
+                <div class="contact-item">
+                     <p>(+55) 5555 555 555</p>
+                </div>
+                <div class="contact-item">
+                     <p><a href="#">saveplate@gmail.com</a></p>
+                </div>
+                
+                <div class="sociallist">
+                    <ul class="social">
+                        <li><a href="https://www.facebook.com/TheAkshayaPatraFoundation/"><img src="https://i.ibb.co/x7P24fL/facebook.png" alt="FB"></a></li>
+                        <li><a href="https://twitter.com/globalgiving"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt="Twitter"></a></li>
+                        <li><a href="https://www.instagram.com/charitism/"><img src="https://i.ibb.co/ySwtH4B/instagram.png" alt="Insta"></a></li>
+                        <li><a href="https://web.whatsapp.com/"><i class="fa fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+            </div>
             
-          </div>
-          <div>
-            <!-- <i class="fa fa-envelope" style="font-size: 17px;
-            line-height: 38px; color:white;"></i> -->
-            <p><a href="#"> saveplate@gmail.com</a></p>
-          </div>
-          
-          <div class="sociallist">
-            <ul class="social">
-            <li><a href="https://www.facebook.com/TheAkshayaPatraFoundation/"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
-            <li><a href="https://twitter.com/globalgiving"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
-            <li><a href="https://www.instagram.com/charitism/"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
-            <li><a href="https://web.whatsapp.com/"><i class="fa fa-whatsapp" style="font-size:50px;color: black;"></i></a></li>
-           </ul>
-          </div>
+            <div class="footer-right">
+                <h2>SAVE <span>Plate</span></h2>
+                <p class="menu">
+                    <a href="#">Home</a> |
+                    <a href="about.html">About</a> |
+                    <a href="profile.php">Profile</a> |
+                    <a href="contact.html">Contact</a>
+                </p>
+                <p class="name">SAVE Plate &copy; 2025</p>
+            </div>
         </div>
-        <div class="footer-right col-md-4 col-sm-6">
-          <h2> SAVE<span> Plate</span></h2>
-          <!-- <h2>Food donate</h2> -->
-          <p class="menu">
-            <a href="#"> Home</a> |
-            <a href="about.html"> About</a> |
-            <a href="profile.php"> Profile</a> |
-            <a href="contact.html"> Contact</a>
-          </p>
-          <p class="name"> SAVE Plate &copy 2025</p>
-        </div>
-      </footer>
-
-    
+    </footer>
 </body>
 </html>

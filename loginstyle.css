@@ -1,282 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
-
-body{
-    background-image: url("");
-
-    /* font-family: 'Open Sans', sans-serif; */
-    background-color: #004AAD;
-     /* outline: none; */
-  font-family: 'Poppins', sans-serif;
-
-
-    
-
-}
-.logo{
-    text-align: center;
-    font-size: 22px;
-    color:black;
-  }
-
-
-.regform{ 
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 420px;
-  border: 1px solid  rgba(0,0,0,0.05);
-  background: white;
-  border-radius: 10px;
-  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
-  */
-
-    width:430px;
-    background-color:white;
-    padding: 20px 20px 20px 20px;
-
-
-    margin: 20px auto ;
-    color:black;
-  
-    font-size: 20px;
-    border-radius: 10px ;
-    /* border: 1px solid black; */
-    
-}
-.regformf{
-  width:480px;
-    background-color:white;
-
-    margin: 20px auto ;
-    color:black;
-    padding: 20px 20px 20px 20px;
-    font-size: 20px;
-    border-radius: 10px ;
-    /* border: 1px solid black; */
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+body {
+    /* Background consistent with home/profile pages */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/p11.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
- #heading{
-    margin-top:0;
-    color:black;
+/* --- Container for Login/Signup Forms --- */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.regform, .regformf {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.95); /* Glass/White Effect */
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    color: #333;
+    position: relative;
+    margin: 20px auto;
+}
+
+/* --- Headings & Logo --- */
+.logo {
     text-align: center;
     font-size: 28px;
-    
-}
-form{
-    /* width:400px; */
-}
-.input input{
-    width:100%;
-    font-size:20px;
-    border:.5px solid #63707E;
-    
-    border-radius: 6px;
-    padding:14px 15px;
-    box-sizing:border-box;
-    margin:5px 0px 15px;
-    color:black;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-input:focus{
-    background-color:white;
+.logo b {
+    color: #004AAD;
 }
 
-button{
-    background-color:black;
-    font-size: 20px;
-    color: white;
-    margin-top: 20px;
-    padding: 14px 16px;
-    border-radius: 8px;
-    border: .5px solid black;
-    width: 100%;
-    
-}
-.radio .value{
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
-    
-
-}
-
-.radio input{
-    transform: scale(1.5);
-
-}
-button:hover{
-    /* background-color:white; */
-    color: #eeeeee;
-    transform: scale(.98);
-
-  
-}
-.regform .signin-up{
-    font-size: 20px; 
+#heading {
     text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    font-weight: 400;
 }
-.password{
-  position: relative;
-}
-.password input{
-  width:100%;
-  font-size:20px;
-  border:.5px solid #63707E;
-  
-  border-radius: 6px;
-  padding:14px 15px;
-  box-sizing:border-box;
-  margin:5px 0px 15px;
-  color:black;
-  
-}
-.fa-eye-slash{
-  position:absolute;
-  top:28%;
-  right: 4%;
-  /* font-size: 48px; */
-  cursor: pointer;
 
+/* --- Form Inputs --- */
+.input, .password {
+    margin-bottom: 20px;
+    position: relative;
 }
-.bi{
-  position:absolute;
-  top:28%;
-  right: 4%;
-  /* font-size: 48px; */
-  cursor: pointer;
 
+.input label, .password label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
 }
-.uil{
-  
-  top:50%;
- bottom: 4%;
-  right: 4%;
-  /* font-size: 48px; */
-  cursor: pointer; 
-  position: absolute;
-  /* top: 50%; */
-  transform: translateY(-50%);
-  color: #595757;
-  font-size: 23px;
-  transition: all 0.2s ease;
+
+.input input, .password input {
+    width: 100%;
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #333;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.input input:focus, .password input:focus {
+    border-color: #004AAD;
+    box-shadow: 0 0 8px rgba(0, 74, 173, 0.15);
+}
+
+/* --- Password Eye Icon --- */
+.password i.showHidePw {
+    position: absolute;
+    top: 45px; /* Adjust based on label height (approx 20px + padding) */
+    right: 15px;
+    color: #777;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.password i.showHidePw:hover {
+    color: #004AAD;
+}
+
+/* --- Buttons --- */
+.btn {
+    margin-top: 10px;
+}
+
+button {
+    background-color: #004AAD;
+    font-size: 18px;
+    color: white;
+    padding: 14px;
+    border-radius: 50px;
+    border: none;
+    width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 74, 173, 0.2);
+}
+
+button:hover {
+    background-color: #003680;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 74, 173, 0.3);
+}
+
+/* --- Radio Buttons (Gender) --- */
+.radio {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    font-size: 15px;
+    color: #555;
+}
+
+.radio input[type="radio"] {
+    accent-color: #004AAD;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.radio label {
+    cursor: pointer;
+}
+
+/* --- Image Radio Group (If used elsewhere) --- */
+.image-radio-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .image-radio-group input[type="radio"] {
     display: none;
-    /* margin-left: auto;
-    margin-right: auto; */
-    
-  }
-  .image-radio-group label {
-    display: inline-block;
+}
+
+.image-radio-group label {
     cursor: pointer;
-  }
-  .image-radio-group label img {
+    transition: 0.3s;
+}
+
+.image-radio-group img {
+    width: 100%;
+    max-width: 200px;
     border: 2px solid transparent;
-  }
-  .image-radio-group input[type="radio"]:checked + label img {
-    border-color:rgb(46, 44, 44);
     border-radius: 10px;
-    /* background-color:rgb(29, 109, 248); */
-  }
-  
-  .image-radio-group img{
-    width: 215px;
-    /* height: 120px; */
-    align-items:center;
-    
+    transition: 0.3s;
+}
 
-    
-  }
-/*  */
-  /* .input #email{
-    display: block;
-    width: 200px;
-  }
-  .input #phoneno{
-    width: 200px;
-    display: block;
-  } */
+.image-radio-group input[type="radio"]:checked + label img {
+    border-color: #004AAD;
+    box-shadow: 0 0 15px rgba(0, 74, 173, 0.3);
+    transform: scale(1.02);
+}
 
+/* --- Footer Links (Sign in/up) --- */
+.signin-up {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
 
+.signin-up a {
+    color: #004AAD;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
 
-@media (max-width: 767px) {
+.signin-up a:hover {
+    text-decoration: underline;
+}
 
+/* --- Error Messages --- */
+.error {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #d32f2f;
+    background: #ffebee;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ffcdd2;
+}
 
-    .regform{ 
-      /* position: absolute;
-      top: 50%;
-      left: 50%; */
-    
-        width: 300px;
-        background-color:white;
+.error i {
+    font-size: 16px;
+}
 
-    
-        margin: 40px auto ;
-        color:black;
-        padding: 20px 20px 20px 20px;
-        font-size: 15px;
-        /* border-radius: 30px ; */
-        /* border: 1px solid black; */
-        
+/* --- Mobile Responsiveness --- */
+@media (max-width: 480px) {
+    .regform, .regformf {
+        width: 100%;
+        margin: 10px;
+        padding: 30px 20px;
     }
-    .regformf{
-      width: 300px;
-        background-color:white;
 
-    
-        margin: 40px auto ;
-        color:black;
-        padding: 20px 20px 20px 20px;
-        font-size: 15px;
-        /* border-radius: 30px ; */
-        /* border: 1px solid black; */
-        
+    .logo {
+        font-size: 24px;
+    }
 
-    }
-    .logo{
-        text-align: center;
-        font-size: 18px;
-        color:black;
-      }
-      #heading{
-        margin-top:0;
-        color:black;
-        text-align: center;
-        font-size: 22px;
-        
-    }
-    #signin-up{
-      /* font-size: 16px; */
-    }
-    button{
-      font-size: 16px;
-    }
-    .input input{
+    #heading {
         font-size: 16px;
     }
-    .radio input{
-        transform: scale(1.1);
+
+    .input input, .password input, button {
+        font-size: 15px;
+        padding: 12px;
     }
-    .image-radio-group img{
-        width: 300px;
-      }
-}
-
-
-.error {
-  display: flex;
-  align-items: center;
-  margin-top: 6px;
-  font-size: 14px;
-  font-weight: 400;
-  color: #d93025;
-  
-}
-h1{
-  /* font-size: 29px; */
 }

@@ -4,10 +4,134 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us - SAVE Plate</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        /* Page specific styles to supplement home.css */
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Hero Section with Image */
+        .about-hero {
+            width: 100%;
+            height: 60vh; /* Takes up 60% of screen height */
+            background: linear-gradient(rgba(0, 74, 173, 0.7), rgba(0, 0, 0, 0.5)), url('img/about3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .about-hero h1 {
+            font-size: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Container for Content Cards */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        /* Glass/White Card Style */
+        .content-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative top border */
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #004AAD;
+        }
+
+        .welcome-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .welcome-title u {
+            text-decoration-color: #004AAD;
+            text-decoration-thickness: 3px;
+        }
+
+        .para p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Map Section */
+        .map-section {
+            text-align: center;
+        }
+
+        .map-frame {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 5px solid white;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Heading Style */
+        .section-heading {
+            font-size: 28px;
+            color: #004AAD;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .about-hero h1 { font-size: 32px; }
+            .content-card { padding: 30px 20px; }
+            .welcome-title { font-size: 24px; }
+            .para p { font-size: 15px; }
+            
+            iframe { height: 300px; } /* Adjust map height for mobile */
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <div class="logo">SAVE <b style="color: #004AAD;">Plate</b></div>
         <div class="hamburger">
@@ -17,115 +141,93 @@
         </div>
         <nav class="nav-bar">
             <ul>
-                <li><a href="home.html" >Home</a></li>
-                <li><a href="#about" class="active" >About</a></li>
-                <li><a href="contact.html" >Contact</a></li>
-                <li><a href="profile.php" >Profile</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#about" class="active">About</a></li>
+                
+                <li><a href="deals.php" style="color: #ff4d4d; font-weight: bold;">⚡ Deals</a></li>
+                
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="profile.php">Profile</a></li>
             </ul>
         </nav>
     </header>
+
     <script>
-        hamburger=document.querySelector(".hamburger");
-        hamburger.onclick =function(){
-            navBar=document.querySelector(".nav-bar");
+        const hamburger = document.querySelector(".hamburger");
+        hamburger.onclick = function() {
+            const navBar = document.querySelector(".nav-bar");
             navBar.classList.toggle("active");
         }
     </script>
-    <style>
-       
+
+    <section class="about-hero">
+        <h1>About Us</h1>
+    </section>
+
+    <div class="container">
         
-        .coverc{
-          width: 100%;
-          height: 400px;
-          background:url('img/about3.jpg')no-repeat;
-    background-size: cover;
-    display: grid;
-    place-items:center;
-    padding-top: 8rem;
- 
-        } 
-        .title{
-          font-size: 38px;
-          text-align: center;
-          align-items: center; 
-        }
-       
-        .para p{
-            font-size: 23px;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-          @media (max-width: 767px) {
-            .para p{
-               font-size: 16px;
-               /* margin-left: 10px; */
-              }
-            #pptslide{
-                height: 200px;
-                width: 300px;
+        <div class="content-card">
+            <p class="welcome-title">Welcome to <u>SAVE Plate</u></p>
+            <div class="para">
+                <p>
+                    We are a team of passionate individuals committed to addressing the issue of food waste in India. 
+                    Our goal is to create a system that connects food donors with charities and NGOs, 
+                    while also reducing the environmental impact of food waste.
+                </p>
+            </div>
+        </div>
 
-            }
-            #map{
-              height: 200px;
-                width: 300px;
+        <div class="content-card map-section">
+            <p class="section-heading">Our Location</p>
+            <br><br>
+            <div class="map-frame">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1056.982879086163!2d77.99972502575568!3d30.27256591613169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092bca3fc0ccf3%3A0xd19900de8c24dbee!2sGraphic%20Era%20Hill%20University%20%7C%20Best%20University%20in%20Dehradun%20Uttarakhand!5e0!3m2!1sen!2sin!4v1763218937533!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" 
+                    id="map">
+                </iframe>
+            </div>
+        </div>
 
+    </div>
 
-            }
-            #overview{
-              height: 200px;
-                width: 300px;
-            }
-            
-        .title{
-          font-size: 28px;
-          margin: 10px;
-          text-align: center;
-          align-items: center; 
-        }
-       
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="about">
+                    <span>About us</span>
+                    The basic concept of this project Food Waste Management is to collect the excess/leftover food from donors such as hotels, restaurants, marriage halls, etc and distribute to the needy people.
+                </p>
+            </div>
+            <div class="footer-center">
+                <p><span>Contact</span></p>
+                <div class="contact-item"><p>(+55) 5555 555 555</p></div>
+                <div class="contact-item"><p><a href="#">saveplate@gmail.com</a></p></div>
+                <div class="sociallist">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-right">
+                <h2>SAVE <span>Plate</span></h2>
+                <p class="menu">
+                    <a href="home.html">Home</a> |
+                    <a href="about.html">About</a> |
+                    <a href="profile.php">Profile</a> |
+                    <a href="contact.html">Contact</a>
+                </p>
+                <p class="name">SAVE Plate © 2025</p>
+            </div>
+        </div>
+    </footer>
 
-          }
-     
-    </style>
-    <br>
-    <br>
-    <!-- <section class="coverc">
-        
-    
-    </section> -->
-    <p class="title">"Welcome to <u> SAVE Plate</u> "</p>
-    <br>
-    <br>
-    <br>
-        <p class="heading">About us</p>
-        <!-- <p  style=" font-size:30px ; text-align: center;" > ABOUT <span>US</span> </p> -->
-      
-        <!-- <br> -->
-      <div class="para">
-        <!-- <p>"Welcome to Food Donate, India's largest and most trusted donating platform that connects donors to verified nonprofits. FoodDonate helps you become a ray of hope for people in need. Choose a cause that is close to your heart and join hands with millions of donors like you who aim to make this world a better place."</p> -->
-      
-        <p>We are a team of passionate individuals committed to addressing the issue of food waste in India. Our goal is to create a system that connects food donors with charities and NGOs, while also reducing the environmental impact of food waste.</p>
-      </div>
-      <br>
- 
-      
-    
-      <br>
-      
-
-
-<div class="map"  style="  text-align: center; padding-bottom: 50px;" >
-<p  style=" font-size:30px ;" > Location  </p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1056.982879086163!2d77.99972502575568!3d30.27256591613169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092bca3fc0ccf3%3A0xd19900de8c24dbee!2sGraphic%20Era%20Hill%20University%20%7C%20Best%20University%20in%20Dehradun%20Uttarakhand!5e0!3m2!1sen!2sin!4v1763218937533!5m2!1sen!2sin" width="777" height="473" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map"></iframe>
-     </div>
-
-
-     <!-- <p class="heading"> Our Story</p>
-     <div class="para">
-       <p>Our journey began with a realization that food waste is a significant problem in India. According to a report by the United Nations, India is the world's second-largest food producer, yet it also has one of the highest rates of food waste. This waste has a significant impact on the environment, as well as on food security in the country.</p>
-     </div> -->
-     <!-- <div class="overview"  style="  text-align: center; padding-bottom: 50px;" >
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=1400 height=800 src="https://edrawcloudpublicus.s3.amazonaws.com/viewer/self/3094230/share/2023-3-2/1677763924/main.svg" id="overview"></iframe>
-     </div> -->
 </body>
 </html>

@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Apr 18, 2023 at 04:00 PM
+-- Host: 127.0.0.1
+-- Generation Time: Feb 05, 2025 at 10:00 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -103,6 +103,45 @@ CREATE TABLE `user_feedback` (
 INSERT INTO `user_feedback` (`feedback_id`, `name`, `email`, `message`) VALUES
 (1, 'John Smith', 'john@example.com', 'I really enjoyed using your product!');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vendors`
+-- (Added for Vendor Registration/Login)
+--
+
+CREATE TABLE `vendors` (
+  `vid` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `address` text NOT NULL,
+  `city` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `discounted_items`
+-- (Added for Near Expiry Deals feature)
+--
+
+CREATE TABLE `discounted_items` (
+  `id` int(11) NOT NULL,
+  `vendor_name` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `item_name` varchar(100) NOT NULL,
+  `description` text DEFAULT NULL,
+  `original_price` decimal(10,2) NOT NULL,
+  `discount_price` decimal(10,2) NOT NULL,
+  `expiry_date` datetime NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `image_path` varchar(255) DEFAULT NULL,
+  `status` varchar(20) DEFAULT 'available',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -125,6 +164,13 @@ ALTER TABLE `login`
 ALTER TABLE `user_feedback`
   ADD PRIMARY KEY (`feedback_id`);
 
+ALTER TABLE `vendors`
+  ADD PRIMARY KEY (`vid`),
+  ADD UNIQUE KEY `email` (`email`);
+
+ALTER TABLE `discounted_items`
+  ADD PRIMARY KEY (`id`);
+
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -143,6 +189,13 @@ ALTER TABLE `login`
 
 ALTER TABLE `user_feedback`
   MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+ALTER TABLE `vendors`
+  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `discounted_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
