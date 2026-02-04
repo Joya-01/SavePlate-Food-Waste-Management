@@ -163,65 +163,66 @@
     </div>
 
     <script>
-        async function generateRecipe() {
-            // 1. Get the User Input
-            const ingredients = document.getElementById('ingredients').value;
-            const resultArea = document.getElementById('result-area');
-            const recipeText = document.getElementById('recipe-text');
-            const loader = document.getElementById('loader');
-            const btn = document.querySelector('.btn-generate');
+    async function generateRecipe() {
+        const ingredients = document.getElementById('ingredients').value;
+        const resultArea = document.getElementById('result-area');
+        const recipeText = document.getElementById('recipe-text');
+        const loader = document.getElementById('loader');
+        const btn = document.querySelector('.btn-generate');
 
-            if (ingredients.trim() === "") {
-                alert("Please enter some ingredients first!");
-                return;
+        if (ingredients.trim() === "") {
+            alert("Please enter some ingredients first!");
+            return;
+        }
+
+        btn.disabled = true;
+        btn.style.opacity = "0.7";
+        loader.style.display = "block";
+        resultArea.style.display = "none";
+
+        // IMPORTANT: Replace the text below with your actual API key from Google AI Studio
+        const apiKey = "AIzaSyA0ST23E2LBW-5AT5ucrl-7o9fE-rgXEFw"; 
+        
+        const prompt = `I have these leftover ingredients: ${ingredients}. Create a creative and tasty recipe using these to reduce food waste. Give it a catchy title, list of ingredients, and step-by-step instructions. Keep formatting clean.`;
+        const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: prompt }] }]
+                })
+            });
+
+            const data = await response.json();
+
+            // Handling the 400 error from your screenshot
+            if (!response.ok) {
+                if (response.status === 400) {
+                    throw new Error("Invalid API Key. Please make sure you replaced 'PASTE_YOUR_REAL_KEY_HERE' with your actual key.");
+                }
+                throw new Error(data.error ? data.error.message : "API Error");
             }
-
-            // 2. Show Loading State
-            btn.disabled = true;
-            btn.style.opacity = "0.7";
-            loader.style.display = "block";
-            resultArea.style.display = "none";
-
-            // 3. Prepare the API Call
-            // PASTE YOUR API KEY HERE BELOW
-            const apiKey = "AIzaSyAsrqK4cz4TQwsQd6Ke42SukvVqyIIHd4k"; 
             
-            const prompt = `I have these leftover ingredients: ${ingredients}. Create a creative and tasty recipe using these to reduce food waste. Give it a catchy title, list of ingredients, and step-by-step instructions. Keep formatting clean.`;
-
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-
-            try {
-                // 4. Call Google Gemini API
-                constresponse = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: prompt }] }]
-                    })
-                });
-
-                const data = await response.json();
-                
-                // 5. Display Result
+            if (data.candidates && data.candidates[0].content.parts[0].text) {
                 const aiResponse = data.candidates[0].content.parts[0].text;
-                
-                // Simple formatting: Replace ** with bold tags for better look
+                // Formats **text** into bold
                 let formattedText = aiResponse.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-                
                 recipeText.innerHTML = formattedText;
                 resultArea.style.display = "block";
-
-            } catch (error) {
-                console.error("Error:", error);
-                alert("Something went wrong with the AI Chef. Please check your API Key or internet connection.");
-            } finally {
-                // 6. Reset Loading State
-                loader.style.display = "none";
-                btn.disabled = false;
-                btn.style.opacity = "1";
             }
+
+        } catch (error) {
+            console.error("Error:", error);
+            alert(error.message);
+        } finally {
+            loader.style.display = "none";
+            btn.disabled = false;
+            btn.style.opacity = "1";
         }
-    </script>
+    }
+</script>
 
 </body>
 </html>
